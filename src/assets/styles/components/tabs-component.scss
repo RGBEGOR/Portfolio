@@ -1,0 +1,35 @@
+.tabs {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  @include mobile {
+    padding: 0;
+  }
+
+  &__btn {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 100%;
+    font-size: var(--text-sm);
+    @include mobile {
+      padding: 4px;
+    }
+
+    .svg-container {
+      margin-right: 5px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import './mixins/burger.scss';
+@import './mixins/font-face.scss';
+@import './mixins/disable-mob-hover.scss';
+@import './mixins/crop-text.scss';
+
+@mixin align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gradient-text {
+  font-family: var(--font-family), sans-serif;
+  background: -webkit-linear-gradient(white, var(--color-ultramarine));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin mobile {
+  @media (max-width: (767px)) {
+    @content;
+  }
+}

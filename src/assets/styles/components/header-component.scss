@@ -1,0 +1,144 @@
+.header {
+  padding: 20px 0;
+  height: 100px;
+
+  @include mobile {
+    position: relative;
+
+    // width: 100%;
+    min-height: 43px;
+    height: 43px;
+  }
+
+  &__container {
+    @include align-center();
+  }
+
+  .burger-wrap {
+    @include mobile {
+      display: inline-block;
+      // background-color: var(--color-ultramarine-dark);
+    }
+  }
+
+  .burger {
+    display: none;
+
+    @include mobile {
+      @include burger;
+      display: inline-block;
+      top: 8px;
+      right: calc(50% - 15px);
+      width: 30px;
+      height: 28px;
+
+      &::after {
+        opacity: 1;
+      }
+
+      &__line.open-menu {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .burger.open-menu::before {
+    top: 3px;
+    transform: rotate(45deg) translateY(8px) translateX(8px);
+  }
+
+  .burger.open-menu::after {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .nav {
+    @include align-center();
+    margin-right: auto;
+    margin-left: auto;
+    width: 100vw;
+
+    @include mobile {
+      position: absolute;
+      top: 43px;
+      z-index: 100;
+    }
+
+    &__close {
+      display: none;
+    }
+
+    &__list {
+      @include align-center();
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px;
+
+      @include mobile {
+        flex-direction: column;
+background-color: black;
+        gap: 8px;
+      }
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+      @include align-center();
+      justify-content: center;
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-right: auto;
+      }
+
+      .nav__link {
+        padding: 10px 15px;
+        width: 100%;
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: var(--text-base);
+        text-align: center;
+      }
+    }
+
+    .nav__link.focus-visible {
+      background-color: var(--color-ultramarine);
+
+    }
+  }
+
+  .router-link-exact-active {
+    box-shadow: var(--box-shadow-glow);
+  }
+}
+
+.fade-enter-active {
+  animation: fadeIn 0.5s;
+}
+
+.fade-leave-active {
+  animation: fadeOut 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
